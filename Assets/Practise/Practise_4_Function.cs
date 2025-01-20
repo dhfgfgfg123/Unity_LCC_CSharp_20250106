@@ -4,20 +4,17 @@ public class Practise_4_Function : MonoBehaviour
 {
     private void Awake()
     {
-        True();
-        False();
+        Debug.Log($"<color=#f33>{True()}</color>");
+        Debug.Log($"<color=#f33>{False()}</color>");
     }
 
-    private void True()
+    private bool True()
     {
-        Debug.Log($"<color=#f33>{1 == 1}</color>");
-        
+        return true;
     }
 
-    private void False()
+    private bool False()
     {
-        Debug.Log($"<color=#f33>{1 != 1}</color>");
-        
-
+        return false;
     }
 }
