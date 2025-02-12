@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   class_7_2: {fileID: 420247214}
+  slimeGreen: {fileID: 1185385941}
+  slimeBlue: {fileID: 1281549159}
 --- !u!1 &1185385938
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,8 +190,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1185385940}
   - component: {fileID: 1185385939}
+  - component: {fileID: 1185385941}
   m_Layer: 0
-  m_Name: Slime_green
+  m_Name: "\u53F2\u840A\u59C6_\u7DA0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,6 +268,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185385941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185385938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afca0c98c2358c40b3f310e39997e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
 --- !u!1 &1281549156
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,8 +291,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1281549158}
   - component: {fileID: 1281549157}
+  - component: {fileID: 1281549159}
   m_Layer: 0
-  m_Name: Slime_blue
+  m_Name: "\u53F2\u840A\u59C6_\u85CD"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,6 +369,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281549159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281549156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2afca0c98c2358c40b3f310e39997e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 200
 --- !u!1 &1525677046
 GameObject:
   m_ObjectHideFlags: 0
