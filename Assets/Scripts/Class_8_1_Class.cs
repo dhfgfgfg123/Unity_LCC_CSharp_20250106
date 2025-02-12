@@ -13,11 +13,14 @@ namespace Eason
         private void Awake()
         {
             // 實例化 NPC 並儲存在 npcJack 變數內
-            Class_8_1_NPC npcJack = new Class_8_1_NPC();
-            Class_8_1_NPC npcEason = new Class_8_1_NPC("Eason");
+            Class_8_1_NPC npcJack = new Class_8_1_NPC("傑克");
+            Class_8_1_NPC npcEason = new Class_8_1_NPC("Eason", "你好啊~");
 
             npcJack.LogName();
             npcEason.LogName();
+            npcJack.Talk();
+            npcEason.Talk();
+
         }
 
     }
