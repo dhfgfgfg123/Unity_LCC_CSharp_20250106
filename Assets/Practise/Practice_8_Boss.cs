@@ -3,13 +3,13 @@
 namespace Eason
 {
 
-    public class Practise_8_Boss
+    public class Practice_8_Boss
     {
         private string name;
         private string skill;
         private float hp;
 
-        public Practise_8_Boss(string _name, string _skill, float _hp)
+        public Practice_8_Boss(string _name, string _skill, float _hp)
         {
             name =  _name;
             skill = _skill;
