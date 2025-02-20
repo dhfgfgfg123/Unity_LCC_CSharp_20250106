@@ -14,6 +14,7 @@ namespace Eason
             SByte decimalToSbyte = Convert.ToSByte(count);
             LogSystem.LogWithColor(decimalToSbyte, "#f33");
             LogSystem.LogWithColor(decimalToSbyte.GetType(), "#f33");
+            // OverflowException: Value was either too large or too small for a signed byte.
         }
     }
 }
