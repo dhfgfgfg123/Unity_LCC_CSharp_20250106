@@ -10,11 +10,11 @@ namespace Eason
 
         private void Awake()
         {
-            decimal count = -999.321m;
-            SByte decimalToSbyte = Convert.ToSByte(count);
-            LogSystem.LogWithColor(decimalToSbyte, "#f33");
-            LogSystem.LogWithColor(decimalToSbyte.GetType(), "#f33");
-            // OverflowException: Value was either too large or too small for a signed byte.
+            float count = -999.321f;
+            sbyte sbyteNumber = (sbyte)count;
+            LogSystem.LogWithColor(sbyteNumber, "#f33");
+            
+           
         }
     }
 }
