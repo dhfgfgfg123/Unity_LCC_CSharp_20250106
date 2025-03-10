@@ -21,7 +21,7 @@ namespace Eason
         // 公開的屬性 : 只有 get 代表唯讀 (只能讀取不能寫入)
         public float jumpSpeed { get; }
 
-        // prop + Tab
+        // Prop + Tab
         // 有預設值的屬性
         public byte lv { get; set; } = 1;
 
