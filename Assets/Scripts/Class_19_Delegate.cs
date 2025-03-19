@@ -32,7 +32,12 @@ namespace Eason.Class_19
         // 1. 宣告委派 : 簽章 (傳回與參數)
         // 宣告一個無傳回與無參數的委派
         private delegate void DelegateMethod();
+        private delegate float Calculate(float numberA, float numberB);
+        private delegate void DelegateCombineFloat(float a);
+        private delegate void DelegateCombine<T>(T a);
+
         // 2. 目標方法
+        #region 無傳回與無參數方法
         private void Test()
         {
             LogSystem.LogWithColor("測試", "#f3f");
@@ -46,22 +51,69 @@ namespace Eason.Class_19
         private void MagicCard()
         {
             LogSystem.LogWithColor("召喚小兵", "#3f3");
+        } 
+        #endregion
+        private float Add(float numberA, float numberB)
+        {
+            float result = numberA + numberB;
+            LogSystem.LogWithColor(result, "#7ff");
+            return result;
+        }
+
+        private float Sub(float numberA, float numberB)
+        {
+            float result = numberA - numberB;
+            LogSystem.LogWithColor(result, "#7ff");
+            return result;
+        }
+
+        private float Mul(float numberA, float numberB)
+        {
+            float result = numberA * numberB;
+            LogSystem.LogWithColor(result, "#7ff");
+            return result;
+        }
+
+        private void Combine<T>(T a)
+        {
+            LogSystem.LogWithColor(a, "#ff3");
         }
 
         // 3.宣告變數存放方式
         private DelegateMethod delegateMethod;
+        private Calculate calculate;
+        private DelegateCombine<float> delegateCombineFloat;
+        private DelegateCombine<int> delegateCombineInt;
 
         // 4. 呼叫委派
         private void Start()
         {
+            #region 基本委派
             delegateMethod = Test;        // 將方法 Test 存放到變數 delegateMethod 內
             delegateMethod += Talk;       // 多播委派 : 一個委派存放多個方法，相同簽章
             delegateMethod += MagicCard;  // 可添加多個方法
             delegateMethod -= Test;       // 也可刪除方法
                                           // 
-            delegateMethod();             // 呼叫委派
+            delegateMethod();             // 呼叫委派 
+            #endregion
+
+            calculate += Add;
+            calculate += Sub;
+            calculate += Mul;
+            calculate(10, 3);
+            calculate(100, 70);
+            CalculateNumber(Sub, 3, 7);      // 將方法當作參數傳遞
+            delegateCombineFloat = Combine<float>;
+            delegateCombineFloat(3.5f);
+            delegateCombineInt = Combine<int>;
+            delegateCombineInt(999);
         }
 
         // 委派 : 將方法當作參數
+        private void CalculateNumber(Calculate calculate, float a, float b)
+        {
+            var result = calculate(a, b);
+            LogSystem.LogWithColor(result, "#ff3");
+        }
     }
 }
