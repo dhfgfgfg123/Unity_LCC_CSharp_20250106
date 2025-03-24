@@ -17,6 +17,18 @@ namespace Eason.Class_19.Event
             // 步驟 3. 其他系統訂閱事件
             class_19_event.onDead += ChangeBgm;
             class_19_event.onDeadAction += ChangeBgmViaHp;
+            class_19_event.onEvent += ChangeBgmEvent;
+            class_19_event.onEventWithHp += ChangeBgmEventWithHp;
+        }
+
+        private void ChangeBgmEventWithHp(object sender, float e)
+        {
+            LogSystem.LogWithColor($"發送事件者 : {sender}, 參數 : {e}", "#ff3");
+        }
+
+        private void ChangeBgmEvent(object sender, EventArgs e)
+        {
+            LogSystem.LogWithColor($"發送事件者 : {sender}, 參數 : {e}", "#ff3");
         }
 
         private void ChangeBgmViaHp(string arg1, float arg2)
