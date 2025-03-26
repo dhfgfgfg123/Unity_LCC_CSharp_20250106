@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 using Eason.Tools;
+using System.Text.RegularExpressions;
 
 namespace Eason
 {
@@ -11,9 +12,12 @@ namespace Eason
     public class Class_19_LinQ : MonoBehaviour
     {
         public int[] scores = { 90, 80, 77, 88, 93, 1, 5, 10, 35 };
+        public string[] items = { "紅色藥水", "藍色藥水", "地圖", "回家卷軸", "匕首", "紅色炸彈" };
+        public int[] numbers = { 1, 23, 77, 34, 42, 56, 80 };
 
         private void Awake()
         {
+            #region LinQ 基本用法
             // 使用 LinQ 的關鍵字查詢資料
             // 起手式 :
             // from 資料來源
@@ -55,7 +59,48 @@ namespace Eason
                 }
 
                 LogSystem.LogWithColor("-------- 群組分隔線 --------", "#78f");
+            } 
+            #endregion
+
+            // let 中間變數，可以取得特定的資料並且儲存於變數內
+            var queryRed = from item in items
+                           let firstWord = item[0]   // 先取得所有資料的第一個字
+                           where firstWord == '紅'
+                           select item;
+            foreach (var item in querySisty)
+            {
+                LogSystem.LogWithColor($"地一個字是紅的道具 : {item}", "#fa3");
             }
+
+            // into 將資料分組，在獲得資料時可通過 key 獲得分組名稱
+            var queryRedGroup = from item in items
+                             group item by item[0] into newGroup
+                             select newGroup;
+
+            foreach (var group in queryRedGroup)
+            {
+                LogSystem.LogWithColor($"群組 : {group.Key}", "#3f3");
+                foreach (var item in group)
+                {
+                    LogSystem.LogWithColor($"道具 : {item}", "#9f9");
+                }
+            }
+
+            var queryEquals = from score in scores
+                              join number in numbers         // 加入第二組資料
+                              on score equals number         // on 比較兩組資料
+                              // selet score;                // 選兩組資料結果都相等的資料
+                              select score;
+
+            foreach (var item in queryEquals)
+            {
+                LogSystem.LogWithColor($"兩組相同的數字 : {item}", "#f33");
+            }
+
+            LogSystem.LogWithColor($"最大值 : {queryEquals.Max()}", "#7f7");
+            LogSystem.LogWithColor($"最小值 : {queryEquals.Min()}", "#7f7");
+            LogSystem.LogWithColor($"平均值 : {queryEquals.Average()}", "#7f7");
+            LogSystem.LogWithColor($"總和 : {queryEquals.Sum()}", "#7f7");
         }
     }
 }
